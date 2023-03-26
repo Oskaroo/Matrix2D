@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matrix2DLib", "Matrix2DLib\Matrix2DLib.csproj", "{6023F916-BA74-419D-BDB0-C9DAD109529A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6023F916-BA74-419D-BDB0-C9DAD109529A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6023F916-BA74-419D-BDB0-C9DAD109529A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6023F916-BA74-419D-BDB0-C9DAD109529A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6023F916-BA74-419D-BDB0-C9DAD109529A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0CD5F592-5638-48C4-B4CB-7F46992B0BAA}
+	EndGlobalSection
+EndGlobal
