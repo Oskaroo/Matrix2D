@@ -105,5 +105,6 @@ namespace Matrix2DLib
             int outD = matrix2.D * -1;
             return new Matrix2D(outA, outB, outC, outD);
         }
+        public static Matrix2D Transpose(Matrix2D matrix) => new (matrix.A, matrix.C, matrix.B, matrix.D);
     }
 }
