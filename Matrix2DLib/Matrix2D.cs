@@ -70,9 +70,14 @@ namespace Matrix2DLib
             Matrix2D output = new(outA, outB, outC, outD);
             return output;
         }
-        public static double[,] MultiplyMatrices(double[,] matrix1, double[,] matrix2)
+        public static Matrix2D operator *(Matrix2D matrix1, Matrix2D matrix2)
         {
-
+            int outA = (matrix1.A * matrix2.A) + (matrix1.B * matrix2.C);
+            int outB = (matrix1.A * matrix2.B) + (matrix1.B * matrix2.D);
+            int outC = (matrix1.C * matrix2.A) + (matrix1.D * matrix2.C);
+            int outD = (matrix1.C * matrix2.B) + (matrix1.D * matrix2.D);
+            Matrix2D output = new(outA, outB, outC, outD);
+            return output;
         }
         // public static bool operator (Matrix2D left, Matrix2D right)
 
