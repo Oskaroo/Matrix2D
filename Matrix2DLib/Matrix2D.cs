@@ -105,6 +105,8 @@ namespace Matrix2DLib
             int outD = matrix2.D * -1;
             return new Matrix2D(outA, outB, outC, outD);
         }
-        public static Matrix2D Transpose(Matrix2D matrix) => new (matrix.A, matrix.C, matrix.B, matrix.D);
+        public static Matrix2D Transpose(Matrix2D matrix) => new(matrix.A, matrix.C, matrix.B, matrix.D);
+        public static int Determinant(Matrix2D matrix) => (matrix.A * matrix.D) - (matrix.B * matrix.C); //class method
+        public int Det() => (this.A * this.D) - (this.B * this.C); //instance method
     }
 }

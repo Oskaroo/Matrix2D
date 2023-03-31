@@ -23,3 +23,7 @@ Console.WriteLine("zmiana znaku macierz m");
 Console.WriteLine(-m);
 Console.WriteLine("transpozycja macierzy m");
 Console.WriteLine(Matrix2D.Transpose(m));
+Console.WriteLine("Determinant(m)");
+Console.WriteLine(Matrix2D.Determinant(m));
+Console.WriteLine("Det()");
+Console.WriteLine(m.Det());
