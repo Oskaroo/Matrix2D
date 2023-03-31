@@ -2,6 +2,7 @@
 
 using System;
 using System.Numerics;
+using System.Text.RegularExpressions;
 
 namespace Matrix2DLib
 {
@@ -108,5 +109,24 @@ namespace Matrix2DLib
         public static Matrix2D Transpose(Matrix2D matrix) => new(matrix.A, matrix.C, matrix.B, matrix.D);
         public static int Determinant(Matrix2D matrix) => (matrix.A * matrix.D) - (matrix.B * matrix.C); //class method
         public int Det() => (this.A * this.D) - (this.B * this.C); //instance method
+        public static int[,] ToIntArray(string matrix)
+        {
+            Regex regex = new Regex(@"^\[\[(\d+), (\d+)\], \[(\d+), (\d+)\]\]$");
+            Match match = regex.Match(matrix);
+            if (match.Success)
+            {
+                int a = int.Parse(match.Groups[1].Value);
+                int b = int.Parse(match.Groups[2].Value);
+                int c = int.Parse(match.Groups[3].Value);
+                int d = int.Parse(match.Groups[4].Value);
+                Console.WriteLine($"A: {a}, B = {b}, C = {c}, D = {d}");
+                return new int[2, 2] { { a, b }, { c, d } };
+
+            }
+            else
+            {
+                throw new FormatException("Invalid format");
+            }
+        }
     }
 }

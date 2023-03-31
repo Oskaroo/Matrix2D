@@ -27,3 +27,7 @@ Console.WriteLine("Determinant(m)");
 Console.WriteLine(Matrix2D.Determinant(m));
 Console.WriteLine("Det()");
 Console.WriteLine(m.Det());
+Console.WriteLine("ToIntArray");
+Console.WriteLine(Matrix2D.ToIntArray("[[1, 2], [3, 4]]"));
+Console.WriteLine("ToIntArray FormatException");
+Console.WriteLine(Matrix2D.ToIntArray("[[1, 2] [3, 4]]"));
