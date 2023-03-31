@@ -1,5 +1,6 @@
 ﻿
 
+using System;
 using System.Numerics;
 
 namespace Matrix2DLib
@@ -79,7 +80,22 @@ namespace Matrix2DLib
             Matrix2D output = new(outA, outB, outC, outD);
             return output;
         }
-        // public static bool operator (Matrix2D left, Matrix2D right)
-
+        public static Matrix2D operator * (int num, Matrix2D matrix2) //lewostronne
+        {
+            int outA = num * matrix2.A;
+            int outB = num * matrix2.B;
+            int outC = num * matrix2.C;
+            int outD = num * matrix2.D;
+            Matrix2D output = new(outA, outB, outC, outD);
+            return output;
+        }
+        public static Matrix2D operator * (Matrix2D matrix2,int num) //prawostronne
+        {
+            int outA = matrix2.A * num;
+            int outB = matrix2.B * num;
+            int outC = matrix2.C * num;
+            int outD = matrix2.D * num;
+            return new Matrix2D(outA, outB, outC, outD);
+        }
     }
 }
