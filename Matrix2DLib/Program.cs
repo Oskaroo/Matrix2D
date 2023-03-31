@@ -19,3 +19,6 @@ Console.WriteLine("Mnożenie przez liczbę całowiką(prawostronne)");
 Console.WriteLine(p*2);
 Console.WriteLine("test dla drugiej macierzy");
 Console.WriteLine(m*2);
+Console.WriteLine("zmiana znaku");
+Console.WriteLine(-m);
+Console.WriteLine(-p);

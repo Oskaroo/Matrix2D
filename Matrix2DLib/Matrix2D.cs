@@ -97,5 +97,13 @@ namespace Matrix2DLib
             int outD = matrix2.D * num;
             return new Matrix2D(outA, outB, outC, outD);
         }
+        public static Matrix2D operator - (Matrix2D matrix2)
+        {
+            int outA = matrix2.A * -1;
+            int outB = matrix2.B * -1;
+            int outC = matrix2.C * -1;
+            int outD = matrix2.D * -1;
+            return new Matrix2D(outA, outB, outC, outD);
+        }
     }
 }
