@@ -1,6 +1,8 @@
 ﻿
 
+using System;
 using System.Numerics;
+using System.Text.RegularExpressions;
 
 namespace Matrix2DLib
 {
@@ -70,11 +72,61 @@ namespace Matrix2DLib
             Matrix2D output = new(outA, outB, outC, outD);
             return output;
         }
-        public static double[,] MultiplyMatrices(double[,] matrix1, double[,] matrix2)
+        public static Matrix2D operator *(Matrix2D matrix1, Matrix2D matrix2)
         {
-
+            int outA = (matrix1.A * matrix2.A) + (matrix1.B * matrix2.C);
+            int outB = (matrix1.A * matrix2.B) + (matrix1.B * matrix2.D);
+            int outC = (matrix1.C * matrix2.A) + (matrix1.D * matrix2.C);
+            int outD = (matrix1.C * matrix2.B) + (matrix1.D * matrix2.D);
+            Matrix2D output = new(outA, outB, outC, outD);
+            return output;
         }
-        // public static bool operator (Matrix2D left, Matrix2D right)
+        public static Matrix2D operator * (int num, Matrix2D matrix2) //lewostronne
+        {
+            int outA = num * matrix2.A;
+            int outB = num * matrix2.B;
+            int outC = num * matrix2.C;
+            int outD = num * matrix2.D;
+            Matrix2D output = new(outA, outB, outC, outD);
+            return output;
+        }
+        public static Matrix2D operator * (Matrix2D matrix2,int num) //prawostronne
+        {
+            int outA = matrix2.A * num;
+            int outB = matrix2.B * num;
+            int outC = matrix2.C * num;
+            int outD = matrix2.D * num;
+            return new Matrix2D(outA, outB, outC, outD);
+        }
+        public static Matrix2D operator - (Matrix2D matrix2)
+        {
+            int outA = matrix2.A * -1;
+            int outB = matrix2.B * -1;
+            int outC = matrix2.C * -1;
+            int outD = matrix2.D * -1;
+            return new Matrix2D(outA, outB, outC, outD);
+        }
+        public static Matrix2D Transpose(Matrix2D matrix) => new(matrix.A, matrix.C, matrix.B, matrix.D);
+        public static int Determinant(Matrix2D matrix) => (matrix.A * matrix.D) - (matrix.B * matrix.C); //class method
+        public int Det() => (this.A * this.D) - (this.B * this.C); //instance method
+        public static int[,] ToIntArray(string matrix)
+        {
+            Regex regex = new Regex(@"^\[\[(\d+), (\d+)\], \[(\d+), (\d+)\]\]$");
+            Match match = regex.Match(matrix);
+            if (match.Success)
+            {
+                int a = int.Parse(match.Groups[1].Value);
+                int b = int.Parse(match.Groups[2].Value);
+                int c = int.Parse(match.Groups[3].Value);
+                int d = int.Parse(match.Groups[4].Value);
+                Console.WriteLine($"A: {a}, B = {b}, C = {c}, D = {d}");
+                return new int[2, 2] { { a, b }, { c, d } };
 
+            }
+            else
+            {
+                throw new FormatException("Invalid format");
+            }
+        }
     }
 }
